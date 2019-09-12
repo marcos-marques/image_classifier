@@ -97,4 +97,7 @@ docker run -p 8501:8501 -d -v absolut_path_to_model:/models/flowers_classifier -
 
  ```
 
+--------------------------
+| [**Portifólio**](https://marcos-marques.github.io/) | [**Blog**](https://medium.com/@marcosrlmarques) | [**GitHub**](https://github.com/marcos-marques?tab=repositories) |
+
 
