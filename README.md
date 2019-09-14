@@ -2,20 +2,29 @@
 
 Este projeto apresenta um notebook com os passos necessários para treinar um modelo de classificação de imagens. 
 
-O projeto esta organizado da seguinte forma:
+O projeto está organizado do seguinte modo:
 
-* diretório **dataset** possui um conjunto de imagens de dividas em 5 tipos de flores divididas em **train**, **test** e **val** (o dataset original pode ser encontrado nesse [link](http://www.robots.ox.ac.uk/~vgg/data/flowers/17/)
-* diretório **utils** possui quatro scripts para auxiliar no pré-processamento: 
+* diretório **dataset** possui um conjunto de imagens de flores divididas em 5 categorias, o número total de imagens está divido na proporção:
+* **train:** 80%
+* **test:** 10%
+* **val:** 10%
+   
+*O dataset original esta disponível no endereço [http://www.robots.ox.ac.uk/~vgg/data/flowers/17/](http://www.robots.ox.ac.uk/~vgg/data/flowers/17/)*
+
+* diretório **utils** possui quatro scripts para auxiliar no pré-processamento e na orgazinação das imagens de treino: 
     * copy_random_files.py
     * increased_data.py
     * rename_file.py
     * split_dataset.py
+
+* As instruções de uso de cada script encontram-se no início do próprio script
+
 * Pipifile
 * image_classifier.ipynb
 
-### Treinando um modelo de reconhecimento de flores
+### Treinando um modelo para classificar flores
 
-Para testar a estrutura da rede treinei um modelo para classificar 5 flores de tipos diferentes, o dataset utilizado para treinar o modelo foi dividido da seguinte forma:
+Para testar a estrutura da rede, treinei um modelo para classificar 5 categorias de flores. A divisão do dataset para realização do treino é apresentada a seguir:
 
 * dataset
     * train (192 exemplos de cada)
@@ -37,12 +46,12 @@ Para testar a estrutura da rede treinei um modelo para classificar 5 flores de t
         * tigerlily
         * tulip
 
-### Resultado do Treino:
+### Informações do treino:
 
 #### Input
 
-* **Dataset:**  [17 Category Flower Dataset](http://www.robots.ox.ac.uk/~vgg/data/flowers/17/)
-* **Finalidade:** Classificar imagens de flores em 5 categorias
+* **Dataset:**  [17 Category Flowers Dataset](http://www.robots.ox.ac.uk/~vgg/data/flowers/17/)
+* **Finalidade:** Classificar imagens de flores em 5 categorias distintas
 
 #### Estrutura da rede
 
@@ -65,7 +74,7 @@ Para testar a estrutura da rede treinei um modelo para classificar 5 flores de t
 
 ### Convertendo o modelo para Tensorflow
 
-Para converter o modelo de *.h5* para um modelo Tensorflow e disponibilizá-lo no Tf Serving você deve executar o seguinte código:
+Para converter o modelo do formato *.h5* do Keras para um modelo Tensorflow e disponibilizá-lo no Tf Serving você pode executar o seguinte código:
 
 ``` 
 tf.keras.backend.set_learning_phase(0)  # Ignore dropout at inference
@@ -96,6 +105,10 @@ docker pull tensorflow/serving && \
 docker run -p 8501:8501 -d -v absolut_path_to_model:/models/flowers_classifier -e MODEL_NAME=document_classifier -t tensorflow/serving
 
  ```
+
+ *A linha de comando irá baixar uma imagem do tensorflow serving e em seguida creará um container docker, que poderá ser acessado pela endreço http://127.0.0.1:8501/v1/models/flowers_classifier:predict*
+
+ *flowers_classifier: refere-se ao nome informado no momento em que o container foi criado.*
 
 --------------------------
 | [**Portifólio**](https://marcos-marques.github.io/) | [**Blog**](https://medium.com/@marcosrlmarques) | [**GitHub**](https://github.com/marcos-marques?tab=repositories) |
