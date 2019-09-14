@@ -4,14 +4,14 @@ Este projeto apresenta um notebook com os passos necessários para treinar um mo
 
 O projeto está organizado do seguinte modo:
 
-* diretório **dataset** possui um conjunto de imagens de flores divididas em 5 categorias, o número total de imagens está divido na proporção:
+* diretório **dataset:** possui um conjunto de imagens de flores divididas em 5 categorias, o número total de imagens está divido na proporção:
 * **train:** 80%
 * **test:** 10%
 * **val:** 10%
    
-*O dataset original esta disponível no endereço [http://www.robots.ox.ac.uk/~vgg/data/flowers/17/](http://www.robots.ox.ac.uk/~vgg/data/flowers/17/)*
+*O dataset original está disponível no endereço [http://www.robots.ox.ac.uk/~vgg/data/flowers/17/](http://www.robots.ox.ac.uk/~vgg/data/flowers/17/)*
 
-* diretório **utils** possui quatro scripts para auxiliar no pré-processamento e na orgazinação das imagens de treino: 
+* diretório **utils:** possui quatro scripts para auxiliar no pré-processamento e na orgazinação das imagens de treino: 
     * copy_random_files.py
     * increased_data.py
     * rename_file.py
@@ -72,7 +72,7 @@ Para testar a estrutura da rede, treinei um modelo para classificar 5 categorias
 ### Classificando algumas imagens:
 |![Predi1](images/pred1.png)|![Pred2](images/pred2.png)|![Pred3](images/pred3.png)|
 
-### Convertendo o modelo para Tensorflow
+### Convertendo o modelo Keras para Tensorflow
 
 Para converter o modelo do formato *.h5* do Keras para um modelo Tensorflow e disponibilizá-lo no Tf Serving você pode executar o seguinte código:
 
@@ -93,11 +93,11 @@ with tf.keras.backend.get_session() as sess:
 
 ```
 
-**OBS:** O código para conversão do modelo esta disponível na última célula do notebook.
+**OBS:** O código para conversão do modelo está disponível também na última célula do notebook.
 
 ### Servindo o modelo no tf serving
 
-Para servir o modelo gerado basta subir um container docker e utilizando o seguinte comando:
+Para servir o modelo utilizando o [TF Serving](https://www.tensorflow.org/tfx/guide/serving) gerado basta subir um container docker e utilizando o seguinte comando:
 
 ```
 docker pull tensorflow/serving && \
