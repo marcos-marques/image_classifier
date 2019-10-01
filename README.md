@@ -106,7 +106,7 @@ docker run -p 8501:8501 -d -v absolut_path_to_model:/models/flowers_classifier -
 
  ```
 
- *A linha de comando irá baixar uma imagem do tensorflow serving e em seguida creará um container docker, que poderá ser acessado pela endreço http://127.0.0.1:8501/v1/models/flowers_classifier:predict*
+ *A linha de comando irá baixar uma imagem do tensorflow serving e em seguida criará um container docker, que poderá ser acessado pela endreço http://127.0.0.1:8501/v1/models/flowers_classifier:predict*
 
  *flowers_classifier: refere-se ao nome informado no momento em que o container foi criado.*
 
